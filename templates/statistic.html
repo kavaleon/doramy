@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<h2>content</h2>
+
+{% block content %}
+<div class="tables">
+    <div class="user_table">
+        <table>
+            <tr>
+                <th>ID пользователя</th>
+                <th>ID квиза</th>
+                <th>Название квиза</th>
+                <th>Время прохождения квиза</th>
+                <th>Количество правильных ответов</th>
+                <th>Количество вопросов в квизе</th>
+            </tr>
+            {% for value in values %}
+                <tr>
+                    <td>{{value.user_id}}</td>
+                    <td>{{value.quiz_id}}</td>
+                    <td>{{value.quiz_name}}</td>
+                    <td>{{value.quiz_time}}</td>
+                    <td>{{value.right}}</td>
+                    <td>{{value.total}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+</div>
+</div>
+
+{% endblock %}

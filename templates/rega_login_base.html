@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ruRU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/rega_login_base.css')}}">
+</head>
+<header>
+    <div class="site_name">
+        <h2>КВИЗЫ</h2>
+        <h4>по любимым аниме</h4>
+    </div>
+</header>
+<body>
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+</body>
+</html>

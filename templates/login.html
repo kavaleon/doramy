@@ -1,0 +1,20 @@
+{% extends 'rega_login_base.html' %}
+
+{% block content %}
+<div class="login_blur">
+    <form id="login" action="/" method="post">
+        <p>Авторизация</p>
+        <div><input class ='input_log' type="email" placeholder="E-mail" name="email"></div>
+        <div><input class ='input_log' type="password" placeholder="Пароль" name="password"></div>
+        <div class="buttons">
+            <input type="submit" class="send_button" value="ОК">
+            <div class="rega_button"><a href="/registration/">Регистрация</a></div>
+        </div>
+        <div class="errors">
+            {% if error %}
+                <h4>{{error}}</h4>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}

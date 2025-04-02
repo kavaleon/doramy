@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <form id="quiz_question" method="post" action="/reda/">
+        <input type="hidden" name="form_quiz_question" value="form_quiz_question">
+        <div id="quizes_common_table" class="quiz_quest">
+            <select size="20" multiple="multiple" name="first_form">
+                {% for quiz in quizes %}
+                    <optgroup label={{quiz.name}}>
+                        {% if quiz.question %}
+                            {% for quest in quiz.question %}
+                                <option value="{{quiz.id}}%%%{{quest.id}}">
+                                    {{quest.quest}}
+                                </option>
+                            {% endfor %}
+                        {% endif %}
+                        <option value="{{quiz.id}}%%%add">
+                             Добавить вопросы
+                        </option>
+                    </optgroup>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div id="questions_common_table" class="quiz_quest">
+            <select size="30" multiple="multiple" name="second_form">
+                {% for question in questions %}
+                    <option value={{question.id}}>
+                        {{question.quest}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="send_but">
+            <input type="submit" class="test_send_button">
+        </div>
+
+    </form>
+{% endblock %}

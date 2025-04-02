@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "animeacev3";
+
+  src: local("animeacev3"),
+       url("../animeacev3.ttf");
+}
+@font-face {
+  font-family: "CodecPro-Regular";
+
+  src: local("CodecPro-Regular"),
+       url("../CodecPro-Regular.ttf");
+}
+
+body{
+    margin:0;
+    background-image: url("../img/fon.jpg");
+    background-size: cover;
+
+}
+#login{
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+#registration{
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+.login_blur{
+    width: 480px;
+    height: 430px;
+    backdrop-filter: blur(5px);
+    background: rgb(255 255 255 / 16%);
+    border: 1px solid rgb(255 255 255 / 6%);
+    border-radius: 40px;
+    box-shadow: 0px 10px 10px rgba(0 0 0 / 20%);
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+.registration_blur{
+    width: 480px;
+    height: 580px;
+    backdrop-filter: blur(5px);
+    background: rgb(255 255 255 / 16%);
+    border: 1px solid rgb(255 255 255 / 6%);
+    border-radius: 40px;
+    box-shadow: 0px 10px 10px rgba(0 0 0 / 20%);
+    position: absolute;
+    left: 10%;
+    top: 60%;
+    transform: translate(0%, -50%);
+}
+.input_log{
+    background-color: white !important;
+    background-image: none !important;
+    border-radius: 15px;
+    border: 1px white solid;
+    margin: 20px;
+    width: 80%;
+    height: 50px;
+    font-family: "CodecPro-Regular";
+}
+.input_rega{
+    background-color: white !important;
+    background-image: none !important;
+    border-radius: 15px;
+    border: 1px white solid;
+    margin: 12px;
+    width: 80%;
+    height: 40px;
+    padding: 0px;
+    font-family: "CodecPro-Regular";
+    padding-left: 20px;
+}
+input:-webkit-autofill{
+    -webkit-box-shadow: inset 0 0 0 50px white !important;
+}
+p{
+    font-size: 30px;
+    font-family: "CodecPro-Regular";
+}
+.site_name{
+    width: 480px;
+    height: 200px;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    transform: translate(0%, -50%);
+    align-content: center;
+    text-align: center;
+    font-family: "CodecPro-Regular";
+}
+h2{
+    font-size: 70px;
+    margin-bottom: 0px;
+    margin-block-end: 0px;
+    color: white;
+    font-family: "animeacev3";
+
+}
+h4{
+    font-size: 29px;
+    margin-top: 0px;
+    font-family: "CodecPro-Regular";
+    color: #FFA5BB;
+}
+input[type="email" i], input[type="password" i]{
+    padding-left: 20px;
+}
+.send_button{
+    border-radius: 50px;
+    width: 160px;
+    height: 50px;
+    background: #FF78AA;
+    border: 1px solid #FF78AA;
+}
+.rega_button{
+    border-radius: 50px;
+    width: 160px;
+    height: 50px;
+    background: white;
+    border: 1px solid white;
+    font-size: 16px;
+    align-content: center;
+}
+.buttons{
+    display: inline-flex;
+    width: 85%;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+}

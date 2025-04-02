@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+<h2>content</h2>
+
+{% block content %}
+<div class="tables">
+    <div class="quizes_table">
+        <div class="column">
+            <div class="row">Номер</div>
+            <div class="row">Название квиза</div>
+            <div class="row">URL Иконки</div>
+            <div class="row">Количество вопросов</div>
+        </div>
+        {% for quiz in quizes %}
+            <a href="/edit_quize/{{quiz.id}}/" style="display:block;">
+                <div class="column">
+                    <div class="row"> {{quiz.id}}</div>
+                    <div class="row">{{quiz.name}}</div>
+                    <div class="row">{{quiz.icon}}</div>
+                    <div class="row">{{len(quiz.question)}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+        <p></p>
+        <a href="#add_quize">Добавить квизы</a>
+        <a href="#delete_quize">Удалить квизы</a>
+        <a href="#add_question">Добавить вопросы</a>
+        <a href="#delete_question">Удалить вопросы</a>
+        <a href="/quiz_question/">Редактировать связи</a>
+        <p></p>
+
+    <div class="questions_table">
+        <div class="column">
+            <div>Номер</div>
+            <div>Вопрос</div>
+            <div>Первый ответ</div>
+            <div>Второй ответ</div>
+            <div>Третий ответ</div>
+            <div>Правильный ответ</div>
+        </div>
+        {% for question in questions %}
+            <a href="/edit_question/{{question.id}}/">
+                <div class="column">
+                    <div>{{question.id}}</div>
+                    <div>{{question.quest}}</div>
+                    <div>{{question.answer1}}</div>
+                    <div>{{question.answer2}}</div>
+                    <div>{{question.answer3}}</div>
+                    <div>{{question.answer_r}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'add_quize.html' %}
+{% include 'add_question.html' %}
+{% include 'delete_quize.html' %}
+{% include 'delete_question.html' %}
+
+{% endblock %}

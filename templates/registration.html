@@ -1,0 +1,26 @@
+{% extends 'rega_login_base.html' %}
+
+{% block content %}
+<div class="registration_blur">
+    <form id="registration" action="/registration/" method="post">
+
+        <p>Регистрация</p>
+        <div><input class ='input_rega' type="text" placeholder="Имя" name="name" value={{values[0]}}></div>
+        <div><input class ='input_rega' type="text" placeholder="Фамилия" name="surname" value={{values[1]}}></div>
+        <div><input class ='input_rega' type="number" placeholder="Возраст" name="age" value={{values[2]}}></div>
+        <div><input class ='input_rega' type="email" placeholder="E-mail" name="email" value={{values[3]}}></div>
+        <div><input class ='input_rega' type="password" placeholder="Пароль" name="password"></div>
+        <div><input class ='input_rega' type="password" placeholder="Повт. пароль" name="ch_password"></div>
+        <div>
+            <input class="send_button" type="submit">
+        </div>
+        <div class="errors">
+            {% if errors %}
+                {% for error in errors%}
+                    <h5 style="color:red;">{{error}}</h5>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}

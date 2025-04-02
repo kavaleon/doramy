@@ -1,0 +1,22 @@
+<div class="modal" id="delete_question">
+        <div class="modal_dialog">
+            <div class="modal_head">
+                <h3 class="center">Выберите вопрос для удаления</h3>
+            </div>
+            <div class="modal_body">
+                <form method="post" action="/reda/">
+                    <h2>{{id}}</h2>
+                    <div class="center send_res">
+                            <select class="input1" name="question_to_delete">
+                                {% for question in questions %}
+                                    <option value="{{question.quest}}">{{question.quest}}</option>
+                                {% endfor %}
+                            </select>
+                            <p></p>
+                            <input type="submit">
+                        </div>
+                </form>
+            </div>
+            <a href="#" class="modal_close center">x</a>
+        </div>
+    </div>

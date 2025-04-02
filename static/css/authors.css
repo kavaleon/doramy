@@ -1,0 +1,61 @@
+.div1{
+    position: relative;
+    width: 60%;
+
+    background: #06194b;
+    margin: auto;
+    text-align: center;
+}
+.div2{
+    width: 100px;
+    height: 100px;
+    background: pink;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 10px;
+    transition: all 700ms;
+    line-height: 100px;
+    overflow: hidden;
+}
+
+.div2:hover{
+    box-shadow: 13px 2px 16px 8px #855656;
+    position: absolute;
+    box-shadow: 13px 2px 16px 8px #855656;
+    /* transform: scale(2); */
+    height: 200px;
+    width: 200px;
+    z-index: 10;
+}
+.div3{
+    font-size:16px;
+    display:none;
+    z-index: 10;
+    position: relative;
+
+}
+button{
+    width:100%;
+    height:100%;
+    outline:0;
+    border:0;
+    background:transparent;
+    transition:.2s;
+    font-size:16px;
+
+}
+button:focus{
+    overflow-y: scroll;
+}
+button:focus > .div3{
+    display: block;
+}
+.center{
+    text-align: center;
+}
+label{
+    color: #e3f78d;
+}
+#rb{
+    text-align-last: left;
+}

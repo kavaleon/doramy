@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{%if values%}
+    <form id="edit_quize" method="post" action="/reda/">
+            <div class="input_row">
+                <input type="hidden" name="form_edit_quize" value="form_edit_quize">
+                <div><input class ='input_quize' type="hidden" value="{{values.id}}" name="edit_quize_id" readonly></div>
+                <div><input class ='input_quize' type="text" value="{{values.name}}" name="edit_quize_name"></div>
+                <div><input class ='input_quize' type="file" value="{{values.icon}}" name="edit_URL"></div>
+            </div>
+
+        <div class="send_but">
+            <input type="submit" class="test_send_button">
+        </div>
+
+    </form>
+{% endif %}
+{% endblock %}

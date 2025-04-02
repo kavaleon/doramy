@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{%if values%}
+<form id="test" method="post">
+    <p id="question">{{values.quest}}</p>
+        <div class="input_row">
+            <input type="radio" id="question_1" name="answer" value="{{values.answer1}}">
+            <label for="question_1" class="question_label">{{values.answer1}}</label>
+        </div>
+
+        <div class="input_row">
+            <input type="radio" id="question_2" name="answer" value="{{values.answer2}}">
+            <label for="question_2" class="question_label">{{values.answer2}}</label>
+        </div>
+
+        <div class="input_row">
+            <input type="radio" id="question_3" name="answer" value="{{values.answer3}}">
+            <label for="question_3" class="question_label">{{values.answer3}}</label>
+        </div>
+
+        <div class="input_row">
+            <input type="radio" id="question_4" name="answer" value="{{values.answer_r}}">
+            <label for="question_4" class="question_label">{{values.answer_r}}</label>
+        </div>
+
+    <div class="send_but">
+        <input type="submit" class="test_send_button">
+    </div>
+</form>
+{% endif %}
+{% endblock %}

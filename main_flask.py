@@ -99,33 +99,10 @@ with (app.app_context()):
     create_data()
     @app.route('/', methods=['POST', 'GET'])
     def index():
-        if session.get('login_ok'):
-            return redirect(url_for('quizes'))
-
         if request.method == 'POST':
-            email_u = request.form.get('email')
-            password_u = request.form.get('password')
-            try:
-                user = User.query.filter_by(email=email_u).one()
-                session['user_admin'] = user.admin
-                if user:
-                    if user.password == password_u:
-                        session['user_name'] = user.name
-                        session['login_ok'] = True
-                        return redirect(url_for('quizes'))
-                    else:
-                        error = 'Пароль ввведен неверно'
-                        return render_template('login.html', error=error)
-            except:
-                error = 'Пользователя с таким e-mail не существует'
-                return render_template('login.html', error=error)
+            return redirect(url_for('quizes'))
+        return redirect(url_for('quizes'))
 
-
-        if request.method == "GET":
-            session['login_ok'] = False
-            return render_template('login.html')
-
-        return render_template('login.html')
 
 
     @app.route('/logout/')
@@ -133,53 +110,21 @@ with (app.app_context()):
         session['login_ok'] = False
         return redirect(url_for('index'))
 
-    @app.route('/registration/', methods=['POST', 'GET'])
-    def registration():
-        global all_quizes
 
-        values = []
-        if request.method == 'POST':
-            name = request.form.get('name')
-            surname = request.form.get('surname')
-            age = request.form.get('age')
-            email = request.form.get('email')
-            password = request.form.get('password')
-            ch_password = request.form.get('ch_password')
-            info = {'name': name, 'surname': surname, 'age': age, 'email': email,
-                    'password': password, 'ch_password': ch_password}
-            values = [name, surname, age, email]
-            errors = check_info(info, errors_2)
-
-            if not errors:
-                user = User(name, surname, email, password, age)
-                users = User.query.all()
-                users.append(user)
-                print(users)
-                session['login_ok'] = True
-                return redirect(url_for('quizes')) # записать вбазу --- перенаправить на главную
-            else:
-                return render_template('registration.html', errors=errors, values=values)
-
-        if request.method == 'GET':
-            print('work this')
-            session['login_ok'] = False
-            return render_template('registration.html', values=values)
 
 
     @app.route('/quizes/') # список квизов, если get - показываем квизы post - направляем на квиз
     def quizes():
         all_quizes = Quiz.query.all()
         session['quiz_id'] = 0
-        if not session.get('login_ok'):
-            return render_template('login.html')
-        return render_template('quizes.html', all_quizes=all_quizes, name=session['user_name'], admin=session['user_admin'])
+        return render_template('quizes.html', all_quizes=all_quizes)
 
 
     @app.route('/test/', methods=['POST', 'GET']) # прохождение теста
     def test():
         if request.method == "GET":
             session['quiz'] = request.args.get('quiz')
-
+            all_quizes = Quiz.query.all()
             if session['quiz']:
                 quiz_with_question = Quiz.query.filter_by(id=int(session['quiz'])).one()
                 session['question_id'] = 0
@@ -312,6 +257,7 @@ with (app.app_context()):
                          'quiz_name': quiz.name,
                          'quiz_icon': quiz.icon,
                          'quiz_user_id': quiz.user_id,
+                        #'quiz_questions': quiz.questions
                      }
         print(quiz_json)
 

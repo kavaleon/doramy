@@ -7,8 +7,6 @@ def check_info(info, errors_2):
     errors = []
     if not info['age']:
         errors.append(errors_2['age'][0])
-    # if int(info['age']) <= 10 or int(info['age']) >= 90:
-    #     errors.append(errors_2['age'][1])
     if not info['email']:
         errors.append(errors_2['email'])
     if not info['password']:

@@ -331,5 +331,5 @@ with (app.app_context()):
 
         return jsonify(question_json)
 
-app.run(debug=True, port=5500, host='0.0.0.0')
+app.run(debug=True, port=5500, host='127.0.0.1')
 

@@ -312,7 +312,6 @@ with (app.app_context()):
                          'quiz_name': quiz.name,
                          'quiz_icon': quiz.icon,
                          'quiz_user_id': quiz.user_id,
-                        #'quiz_questions': quiz.questions
                      }
         print(quiz_json)
 
